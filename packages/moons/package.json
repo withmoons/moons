@@ -40,7 +40,7 @@
     "@astrojs/rss": "2.4.3",
     "@withmoons/config": "0.1.0",
     "ci-info": "3.8.0",
-    "commander": "10.0.1",
+    "commander": "11.0.0",
     "cytoscape": "3.25.0",
     "zod": "3.21.4"
   }
