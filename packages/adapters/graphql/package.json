@@ -1,0 +1,34 @@
+{
+  "name": "@withmoons/graphql-adapter",
+  "version": "0.1.0",
+  "description": "Moons GraphQL Adapter",
+  "author": "withmoons",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.20.0"
+  },
+  "bugs": "https://github.com/withmoons/moons/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/withmoons/moons.git",
+    "directory": "packages/adapters/graphql"
+  },
+  "main": "dist/index.mjs",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "build:ci": "tsc -p ./tsconfig.json"
+  },
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "graphql",
+    "moons"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}
