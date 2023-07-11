@@ -207,13 +207,16 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"article": {};
-		"page": {};
+		"articles": {};
+		"events": {};
+		"questions": {};
+		"pages": {};
+		"persons": {},
 	};
 
 	type DataEntryMap = {};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap  & { render(): Render };
 
-	type ContentConfig = typeof import("./src/assets/content/confignfig");
+	type ContentConfig = typeof import("./src/assets/content/config");
 }

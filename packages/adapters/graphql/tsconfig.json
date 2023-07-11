@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/**/*", "global.d.ts"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "allowJs": true,
+    "target": "ES2021",
+    "module": "ES2022",
+    "declarationDir": "./dist",
+    "outDir": "./dist"
+  }
+}

@@ -1,12 +1,20 @@
 import { defineCollection } from "astro:content";
-import { articlePageSchema, pageSchema, questionSchema } from "./_schemas";
+import { articlePageSchema, eventSchema, pageSchema, personSchema, questionSchema } from "./_schemas";
 
 const articlesCollection = defineCollection({
   schema: articlePageSchema,
 });
 
+const eventsCollection = defineCollection({
+  schema: eventSchema,
+});
+
 const pagesCollection = defineCollection({
   schema: pageSchema,
+});
+
+const personsCollection = defineCollection({
+  schema: personSchema
 });
 
 const questionsCollection = defineCollection({
@@ -14,7 +22,9 @@ const questionsCollection = defineCollection({
 });
 
 export const collections = {
-  article: articlesCollection,
-  question: questionsCollection,
-  page: pagesCollection,
+  articles: articlesCollection,
+  events: eventsCollection,
+  questions: questionsCollection,
+  pages: pagesCollection,
+  persons: personsCollection,
 };

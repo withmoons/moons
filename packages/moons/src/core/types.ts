@@ -1,4 +1,4 @@
-import type { CollectionEntry, Render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { ArticleFrontmatter, PageFrontmatter } from "../assets/content/_schemas";
 type ContentConfig = typeof import("../assets/content/config");
 
@@ -13,21 +13,43 @@ declare module 'astro:content' {
   }
 }
 
+export type MetaDataHeaders = {
+  title: string;
+  description: string;
+  canonical: string;
+  alternates: Array<{
+    href: string;
+    hreflang: string;
+  }>;
+  robots: string;
+};
+
+export type OpenGraph = {
+  title: string;
+  description: string;
+  url: string;
+};
+
 export type GeneratedPageEntry = {
   id: string;
   slug: string;
   path: string;
   body: string;
   data: import('astro/zod').infer<
-    ReturnTypeOrOriginal<Required<ContentConfig['collections']['page']>['schema']>
+    ReturnTypeOrOriginal<Required<ContentConfig['collections']['pages']>['schema']>
   >
 };
 
-export type ContentEntry = CollectionEntry<'article'> | CollectionEntry<'page'> | GeneratedPageEntry;
-
+export type CollectionName = keyof ContentConfig['collections']
+export type ContentEntry = CollectionEntry<'articles'> | CollectionEntry<'pages'> | GeneratedPageEntry;
 export type ContentFrontmatter = ArticleFrontmatter | PageFrontmatter;
-export type HydratedContentFrontmatter = ContentFrontmatter & Required<Pick<ContentFrontmatter, "url">>
+export type HydratedContentFrontmatter = ContentFrontmatter & Required<Pick<ContentFrontmatter, 'url'>>
 export type HydratedContent = ContentEntry & {
   path: string;
-  data: HydratedContentFrontmatter
+  collection: CollectionName;
+  data: HydratedContentFrontmatter;
+  metadata: {
+    headers: MetaDataHeaders;
+    openGraph: OpenGraph;
+  },
 };
